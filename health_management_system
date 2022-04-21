@@ -1,0 +1,75 @@
+# Health Management System for Younger with datetime module
+import datetime
+
+
+def getdate():
+    import watch
+    return watch.datetime.now()
+
+
+def gettime():
+    return datetime.datetime.now()
+
+
+# condition
+for x in range(2):
+    # log value
+    def log(k):
+        if k == 1:
+            name = input("enter your name : ")
+            c = int(input("Enter 1 for food & 2 for Exercise = "))
+            if c == 1:
+                print(f"{name} selected food")
+                value = input("Enter food name : ")
+                print(f"{name} wow you are eating : ", value)
+                with open("food.txt", "a") as gd:
+                    gd.write(f"{name} - " + str(str(gettime())) + " : " + value + "\n")
+                print("written successfully")
+            elif c == 2:
+                print(f"{name} selected Exersice")
+                value = input("Enter Exersice name : ")
+                print(f"{name} you are doing : ", value)
+                with open("exercise.txt", "a") as gd:
+                    gd.write(f"{name} - " + str(str(gettime())) + " : " + value + "\n")
+                print("written successfully")
+            else:
+                print("Wrong input. Enter valid value")
+
+        else:
+            print("enter 1 or 2")
+
+
+    # Retrieve
+    def retrieve(k):
+        if k == 1:
+            c = int(input("Enter 1 for food & 2 for Exercise : "))
+            if c == 1:
+                print("you selected food")
+                with open("food.txt") as f:
+                    for i in f:
+                        print(i, end=" ")
+            elif c == 2:
+                print("you selected Exercise")
+                with open("exercise.txt") as f:
+                    for i in f:
+                        print(i, end=" ")
+            else:
+                print("Enter valid value")
+        else:
+            print("wrong input")
+
+
+    print("Health Management system")
+    a = int(input("""Enter value
+        1. for log
+        2. for Retrieve
+        i guess : """))
+
+    if a == 1:
+        b = int(input("enter  1 : "))
+        log(b)
+    else:
+        b = int(input("enter  1 : "))
+        retrieve(b)
+
+print("\n\n\n made by Habibur Rahman")
